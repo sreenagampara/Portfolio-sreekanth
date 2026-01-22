@@ -25,6 +25,11 @@ app.use('/api/skills', skillRoutes);
 app.use('/api/about', aboutRoutes);
 app.use('/api/admin', adminRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Portfolio API is running 🚀");
+});
+
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
