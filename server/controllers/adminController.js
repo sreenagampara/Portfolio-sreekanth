@@ -56,14 +56,12 @@ export const updateAdminCredentials = async (req, res) => {
 // @access  Public (Should be protected or removed in prod)
 export const createInitialAdmin = async (req, res) => {
     try {
-        const existingAdmin = await Admin.findOne({ username: 'admin' });
-        if (existingAdmin) {
-            return res.status(400).json({ message: 'Admin already exists' });
-        }
+        // Delete any existing admin to allow a clean reset
+        await Admin.deleteMany({});
 
         const admin = await Admin.create({
-            username: 'admin',
-            password: 'password123', // Default password
+            username: 'sreekanth',
+            password: 'Sree@2025',
         });
 
         res.status(201).json({
