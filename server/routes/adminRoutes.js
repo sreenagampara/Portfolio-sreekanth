@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.post('/login', authAdmin);
 router.put('/update', protect, updateAdminCredentials);
-router.post('/seed', createInitialAdmin);
+router.get('/seed', createInitialAdmin);
 
 export default router;
